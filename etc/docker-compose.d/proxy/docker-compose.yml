@@ -1,0 +1,17 @@
+version: '2'
+# proxy
+
+# https://qiita.com/ka2asd/items/372d30be64c57a8a81b1
+services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+
+networks:
+  default:
+    external:
+      name: common_link
